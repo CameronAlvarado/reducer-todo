@@ -8,7 +8,7 @@ import { TodoContext } from './contexts/TodoContext.js';
 function App() {
   // const [newTitleText, setNewTitleText] = useState();
   const [state, dispatch] = useReducer(todoReducer, initialState);
-  console.log(state);
+  // console.log(state);
 
   const filterCompleted = () => {
     dispatch({
@@ -21,11 +21,11 @@ function App() {
         // }
       })
     });
-  }
+  };
 
   const toggleCompleted = id => {
     dispatch({ 
-      todos: state.map(todo => {
+      todos: state.todos.map(todo => {
         if (id === todo.id) {
           return {...todo, completed: !todo.completed}
         } else {
@@ -33,7 +33,7 @@ function App() {
         }
       })
     });
-  }
+  };
     
   const addTodo = task => {
     this.setState({
@@ -43,10 +43,25 @@ function App() {
         completed: false
       }]
     })
-  }
+  };
+
+  const handleDoubleClick = () => {
+    console.log("Double Click handler activated!")
+  };
+
+  const handleChange = (event) => {
+    // console.log("Change handler activated!");
+    dispatch({ [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+        event.preventDefault();
+        addTodo(this.state.newtodo);
+        this.setState({ newtodo: ""})
+    }
 
   return (
-    <TodoContext.Provider value={{ state, filterCompleted, toggleCompleted, addTodo }}>
+    <TodoContext.Provider value={{ state, filterCompleted, toggleCompleted, addTodo, handleDoubleClick, handleChange, handleSubmit }}>
       <div className="App">
         <TodoList />
       </div>
