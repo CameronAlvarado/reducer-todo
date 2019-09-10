@@ -11,20 +11,24 @@ export const initialState = {
 }
   
   export const todoReducer = (state, action) => {
-    // switch (action.type) {
-    //   case "TOGGLE_EDITING":
-    //     return {
-    //       ...state, // always return a speading state in reducers.
-    //       editing: !state.editing
-    //     };
-    //   case "UPDATE_TITLE":
-    //     return {
-    //       ...state,
-    //       title: action.payload,
-    //       editing: !state.editing
-    //     };
-      // default:
+    switch (action.type) {
+      case "ADD_TODO":
+        return {
+          ...state, // always return a speading state in reducers.
+          todos: [...state.todos, {
+            item: action.payload, 
+            id: Date.now(), 
+            completed: false
+          }]
+        };
+      case "UPDATE_TITLE":
+        return {
+          ...state,
+          title: action.payload,
+          editing: !state.editing
+        };
+      default:
         return state;
-    // }
+    }
   };
   

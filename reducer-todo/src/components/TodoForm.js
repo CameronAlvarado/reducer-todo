@@ -1,32 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { EVENTS } from 'saxes';
 
 const TodoForm = (props) => {
+    const [input, setInput] = useState("");
 
-    // const handleChange = (event) => {
-    //     // console.log("Change handler activated!");
-    //     this.setState({ [event.target.name]: event.target.value });
-    //   };
+    const handleChange = (event) => {
+        // console.log("Change handler activated!");
+        setInput(event.target.value);
+      };
 
-    // const handleSubmit = (event) => {
-    //         event.preventDefault();
-    //         props.addTodo(this.state.newtodo);
-    //         this.setState({ newtodo: ""})
-    //     }
+    const handleSubmit = (event) => {
+            event.preventDefault();
+            props.addTodo(input);
+            setInput("")
+        }
 
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input 
-                onChange={props.handleChange}
+                onChange={handleChange}
                 type="text"
                 name="newtodo"
                 placeholder="Add new todo"
-                value={props.state}
+                value={input}
             />
             <button 
                 type="submit"> Add new todo
             </button>
-            <button onDoubleClick={props.filterCompleted}> Double click to clear completed</button>
+            {/* <button onDoubleClick={props.filterCompleted}> Double click to clear completed</button> */}
         </form>
     )
 }
