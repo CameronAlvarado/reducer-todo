@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import TodoList from './components/TodoList.js';
 import './App.css';
 
@@ -46,26 +46,25 @@ function App() {
   //     }]
   //   })
   // };
+  const filterCompleted = () => {
+    dispatch({ type: "FILTER_COMPLETED"})
+  }
 
   const toggleCompleted = id => {
     console.log(id);
     dispatch({ type: "TOGGLE_COMPLETED", payload: id})
-  }
+  };
 
   const addTodo = task => {
     console.log(task);
     dispatch({ type: "ADD_TODO", payload: task})
-  }
-
-
-  const handleDoubleClick = () => {
-    console.log("Double Click handler activated!")
   };
+
 
 //------------------------------------------
 
   return (
-    <TodoContext.Provider value={{ state, addTodo, toggleCompleted/*, filterCompleted, handleDoubleClick, handleChange, handleSubmit */}}>
+    <TodoContext.Provider value={{ state, addTodo, toggleCompleted, filterCompleted/*, handleDoubleClick, handleChange, handleSubmit */}}>
       <div className="App">
         <TodoList />
       </div>

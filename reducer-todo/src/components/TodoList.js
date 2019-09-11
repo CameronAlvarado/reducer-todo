@@ -10,11 +10,9 @@ const TodoList = () => {
     return (
         <div className="TodoList">
             <h1>TodoList Comp</h1>
-            {/* {console.log(state)} */}
             {state.todos.map(todo => {
                         return (
                             <div>
-                                {console.log(todo.id)}
                             <Todo 
                             todo={todo}
                             key={todo.id}

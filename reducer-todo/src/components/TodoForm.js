@@ -27,7 +27,7 @@ const TodoForm = (props) => {
             <button 
                 type="submit"> Add new todo
             </button>
-            {/* <button onDoubleClick={props.filterCompleted}> Double click to clear completed</button> */}
+            <button onClick={props.filterCompleted}> Double click to clear completed</button>
         </form>
     )
 }

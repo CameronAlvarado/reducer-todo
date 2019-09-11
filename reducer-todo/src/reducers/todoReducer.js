@@ -14,19 +14,36 @@ export const initialState = {
     switch (action.type) {
       case "ADD_TODO":
         return {
-          ...state, // always return a speading state in reducers.
+          ...state, // always return a spreading state in reducers.
           todos: [...state.todos, {
             item: action.payload, 
             id: Date.now(), 
             completed: false
           }]
         };
-      case "UPDATE_TITLE":
+      case "TOGGLE_COMPLETED":
         return {
           ...state,
-          title: action.payload,
-          editing: !state.editing
+          todos: state.todos.map(todo => {
+            if (action.payload === todo.id) {
+              return {...todo, completed: !todo.completed}
+            } else {
+              return todo;
+            }
+          })
         };
+      case "FILTER_COMPLETED":
+        return {
+          ...state,
+          todos: state.todos.filter(todo => {
+            return !todo.completed;
+            if (!todo.completed) {
+              return true;
+            } else {
+              return true;
+            }
+          })
+        }
       default:
         return state;
     }
