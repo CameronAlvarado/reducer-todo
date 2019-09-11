@@ -64,7 +64,7 @@ function App() {
 //------------------------------------------
 
   return (
-    <TodoContext.Provider value={{ state, addTodo, toggleCompleted, filterCompleted/*, handleDoubleClick, handleChange, handleSubmit */}}>
+    <TodoContext.Provider value={{ state, addTodo, toggleCompleted, filterCompleted }}>
       <div className="App">
         <TodoList />
       </div>

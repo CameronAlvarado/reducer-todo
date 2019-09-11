@@ -23,10 +23,13 @@ const TodoForm = (props) => {
                 name="newtodo"
                 placeholder="Add new todo"
                 value={input}
+                className="input"
             />
-            <button type="submit"> Add new todo
-            </button>
-            <button onClick={props.filterCompleted}> Clear completed</button>
+            <div className="button-box">
+                <button type="submit" className="button"> Add new todo
+                </button>
+                <button onClick={props.filterCompleted} className="button"> Clear completed</button>
+            </div>
         </form>
     )
 }
