@@ -9,7 +9,7 @@ const TodoList = () => {
 
     return (
         <div className="TodoList">
-            <h1>TodoList Comp</h1>
+            <h1>TodoList 2.0</h1>
             {state.todos.map(todo => {
                         return (
                             <div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { EVENTS } from 'saxes';
+import './Todo.css';
 
 const TodoForm = (props) => {
     const [input, setInput] = useState("");
@@ -24,10 +24,9 @@ const TodoForm = (props) => {
                 placeholder="Add new todo"
                 value={input}
             />
-            <button 
-                type="submit"> Add new todo
+            <button type="submit"> Add new todo
             </button>
-            <button onClick={props.filterCompleted}> Double click to clear completed</button>
+            <button onClick={props.filterCompleted}> Clear completed</button>
         </form>
     )
 }
