@@ -37,11 +37,6 @@ export const initialState = {
           ...state,
           todos: state.todos.filter(todo => {
             return !todo.completed;
-            if (!todo.completed) {
-              return true;
-            } else {
-              return false;
-            }
           })
         }
       default:
